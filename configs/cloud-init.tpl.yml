@@ -1,0 +1,18 @@
+config:
+  # map the local user (id: 83265 in this case)
+  # to the user 5000 inside the container
+  raw.idmap: |-
+    uid $_UID 5000
+    gid $_GID 5000
+  user.user-data: |
+    #cloud-config
+    users:
+    - name: $USER
+      shell: /bin/bash
+      ssh-authorized-keys:
+      - $SSH_KEY
+      sudo:
+      - ALL=(ALL) NOPASSWD:ALL
+      uid: '5000'
+profiles:
+- default

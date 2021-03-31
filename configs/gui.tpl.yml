@@ -1,0 +1,13 @@
+config:
+  environment.DISPLAY: :0
+  # id mapping is required (or privileged container)
+  raw.idmap: |-
+    uid $_UID 0
+    gid $_GID 0
+devices:
+  X0:
+    path: /tmp/.X11-unix/X0
+    source: /tmp/.X11-unix/X0
+    type: disk
+profiles:
+- default
