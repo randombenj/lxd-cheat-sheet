@@ -132,6 +132,16 @@ lxc exec c1 -- bash
 There is also a guide on how to run docker containers inside an lxd container:
 https://lxd.readthedocs.io/en/latest/#how-can-i-run-docker-inside-a-lxd-container
 
+### Run k3s inside a Container
+
+To run [k3s](https://k3s.io/) inside an lxd container, simply start a conatier with the 
+[k3s config](configs/k3s.yml).
+
+```sh
+lxc launch ubuntu:20.04 k3s < configs/k3s.yml
+lxc exec k3s -- curl -sfL https://get.k3s.io | sh -
+```
+
 ### Creating Snapshots
 
 ```sh

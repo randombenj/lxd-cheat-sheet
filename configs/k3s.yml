@@ -1,0 +1,9 @@
+config:
+  linux.kernel_modules: xt_conntrack,ip_tables,ip6_tables,netlink_diag,nf_nat,overlay
+  raw.lxc: |
+    lxc.mount.auto=proc:rw sys:rw
+    lxc.apparmor.profile=unconfined
+  security.nesting: "true"
+  security.privileged: "true"
+profiles:
+- default
